@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+int i,j,k; int oteleme, sorgu,sorgu2; char desifrelimetin[20];
+	char metin[20]; char sifrelimetin[20]; char metin2[20];
+	char alfabe[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	
+	    printf("Sifrelenecek metni giriniz: ");
+	    scanf("%s",&metin);
+	    printf("\n\Metin : %s",metin);	
+		
+		printf("\nKac karakter otelemek istediginizi giriniz: ");
+	    scanf("%d",&oteleme);
+			
+			oteleme=oteleme%26;
+			
+			for(i=0;i<26;i++){
+				for(k=0;k<26;k++){
+				
+					if(metin[i]==alfabe[k]){
+						sorgu = k + oteleme;
+						if(sorgu > 25){
+							sorgu %= 26;
+						}
+						sifrelimetin[i]=alfabe[sorgu];
+					}
+				}
+			} 
+			
+	
+		printf("\n\nSifreli metin : %s",sifrelimetin);
+		
+	printf("\n\nDesifrelenecek metni giriniz: ");
+	    scanf("%s",&metin2);
+	for(i=0;i<26;i++){
+	for(k=0;k<26;k++){
+	
+	if(metin2[i]==alfabe[k]){
+	sorgu2=k-oteleme;
+	if(sorgu2 < 0){
+	sorgu2 = (26+sorgu2);
+						}
+	desifrelimetin[i]=alfabe[sorgu2];
+		}
+	 }
+	}
+	
+	printf("\n\nDESifreli metin : %s",desifrelimetin);
+  
+  return 0;
+  }
